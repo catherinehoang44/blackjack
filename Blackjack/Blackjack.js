@@ -196,15 +196,19 @@ function rectHitTest(mX, mY, x, y, w, h, buttonFunction) {
   if (buttonFunction === 'hit' && mX > x && mX < x + w && mY > y && mY < y + h) {
     // add another card to player's hand
     playerHand[numInPlayerHand] = {cardType: round(random(0, 3)), cardNum: round(random(1, 12))};
-
     numInPlayerHand++;
+    // check if playerPoints > 21. if it is, computer wins
+    // if player's total points are exactly 21, computer plays next
 // calculate if it's over 21, if not, comp plays, display winner
   } else if (buttonFunction === 'endturn' && mX > x && mX < x + w && mY > y && mY < y + h) {
-    // end turn so computer plays    
+    // end turn so computer plays 
+    // keep on drawing a card until comPoints >= 21
     compHand[numInCompHand] = {cardType: round(random(0, 3)), cardNum: round(random(1, 12))};
     numInCompHand++;
-    // caluclate player and comp's score
-    // display winner
+    // if compPoints === 21, comp wins
+    // if compPoints > 21, player wins
+    // if both equal to 21, a tie
+    // display winner/tie and tally it in variables 'wins' or 'losses' (i.e. wins++;)
   } else if (buttonFunction === 'menu' && mX > x && mX < x + w && mY > y && mY < y + h) {
     selectedPage = buttonFunction;
   } else if (buttonFunction === 'settings' && mX > x && mX < x + w && mY > y && mY < y + h) {
