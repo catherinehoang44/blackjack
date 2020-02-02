@@ -198,11 +198,11 @@ function mousePressed() {
 // to check if user clicks rectangular button
 function rectHitTest(mX, mY, x, y, w, h, buttonFunction) {
   if (buttonFunction === 'hit' && mX > x && mX < x + w && mY > y && mY < y + h) {
+    if (true) {
     playerHand[numInPlayerHand] = {cardType: round(random(0, 3)), cardNum: round(random(1, 12))};
     numInPlayerHand++;
-    
+    }
     //okay for some reason, once the card is added, it doesnt make it to the if statement :/
-    
     // check if playerPoints > 21. if it is, computer wins
     if (playerPoints > 21) {
       results = 'You Lose :(';
