@@ -200,30 +200,29 @@ function rectHitTest(mX, mY, x, y, w, h, buttonFunction) {
   if (buttonFunction === 'hit' && mX > x && mX < x + w && mY > y && mY < y + h) {
     playerHand[numInPlayerHand] = {cardType: round(random(0, 3)), cardNum: round(random(1, 12))};
     numInPlayerHand++;
-    
-    //okay for some reason, once the card is added, it doesnt make it to the if statement :/
-    
+     
     // check if playerPoints > 21. if it is, computer wins
     if (playerPoints > 21) {
-      results = 'You Lose :(';
+      result = 'You Lose :(';
       losses++;
     }
   } else if (buttonFunction === 'endturn' && mX > x && mX < x + w && mY > y && mY < y + h) {
     // end turn so computer plays 
     // keep on drawing a card until comPoints >= 217
+    results = 'test';
     if (compPoints < 17) {
         compHand[numInCompHand] = {cardType: round(random(0, 3)), cardNum: round(random(1, 12))};
         numInCompHand++;
     }
     // calculates the winner
     if (compPoints > 21){
-      results = 'You Win :)';
+      result = 'You Win :)';
       wins++;
     } else if (compPoints >= playerPoints) {
-      results = 'You Lose :(';
+      result = 'You Lose :(';
       losses++;
     } else {
-      results = 'You Win :)';
+      result = 'You Win :)';
       wins++;
     }
       
